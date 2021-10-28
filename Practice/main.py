@@ -1,23 +1,16 @@
-n = int(input("Number of activities: "))
+s = [10, 12, 20]
+f = [20, 25, 30]
 
-print("Enter start and finish time for %d activities: " %n)
 
-activities = []
-
-for i in range(n):
-    s, f = map(int, input("Activity %d: " %(i+1)).split())
-    activities.append([s, f])
-
-s_a = sorted(activities, key = lambda x:x[1])
-
-print(s_a)
-
+n = len(s)
 A = [0]
-i = 0
+i=0
 
 for m in range(1, n):
-    if s_a[m][0] >= s_a[i][1]:
+    if s[m] >= f[i]:
         A.append(m)
-        i = m
 
-print(A)
+print("Selected Activities: ")
+
+for element in A:
+    print(element, end='    ')
