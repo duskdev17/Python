@@ -1,16 +1,25 @@
-s = [1, 3, 0, 5, 3, 5, 6, 8, 8, 2, 12]
-f = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+def MaxActivities(arr, n):
+    selected = []
+
+    # Sort jobs according to finish time
+    Activity.sort(key=lambda x: x[1])
+
+    # The first activity always gets selected
+    i = 0
+    selected.append(arr[i])
+
+    for j in range(1, n):
+        if arr[j][0] >= arr[i][1]:
+            selected.append(arr[j])
+            i = j
+        return selected
 
 
-n = len(s)
-A = [0]
-i=0
+# Driver code
+Activity = [(4 , 12 ), ( 3 , 12 ), ( 0 , 1 ), ( 0 , 15 ), ( 12 , 14 ), ( 0 , 10 ), ( 0 , 2 )]
+n = len(Activity)
+selected = MaxActivities(Activity, n)
+print("Following activities are selected :")
+print(selected)
 
-for m in range(1, n):
-    if s[m] >= f[i]:
-        A.append(m)
-
-print("Selected Activities: ")
-
-for element in A:
-    print(element, end='    ')
+# This cde is contributed by kshitijjainm
