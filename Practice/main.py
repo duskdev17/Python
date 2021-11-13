@@ -1,25 +1,30 @@
-"""Fractional Knapsack"""
+from collections import defaultdict
+from queue import Queue
 
-n = int(input("How many items? "))
-w = int(input("Total Capacity: "))
-print("Enter items and value in a separate line")
+n = int(input("n = "))
+e = int(input("e = "))
 
-items = []
+adj = defaultdict(list)
 
-for i in range(n):
-    weight, value = map(int, input("Item %d: " %(i+1)).split())
-    items.append([weight, value, weight/value])
+print("Enter edges information. ")
 
-sorted_items = sorted(items, key=lambda x:x[2], reverse=True)
+for i in range(e):
+    u, v = input("Edge %d: " %(i+1)).split()
+    adj[u].append(v)
+    adj[v].append(u)
 
-print(sorted_items)
-profit = 0
+visited = set()
+q = Queue(maxsize=n)
+s = input("Enter source node: ")
+q.put(s)
+visited.add(s)
 
-for element in sorted_items:
-    if element[0] <= w:
-        profit+= element[1]
-        w = element[0]
-    else:
-        profit+= element[2] * w
-    break
+print("BFS: ", end= '  ')
+while not q.empty():
+    u = q.get()
+    print(u, end = '    ')
 
+    for element in adj[u]:
+        if element not in visited:
+            q.put(element)
+            visited.add(element)
