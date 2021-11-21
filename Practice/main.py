@@ -23,7 +23,7 @@ def find_set(x):
 
 
 def union_set(x, y):  # X AND Y BOTH ARE PARENTS
-    if parent[x] > parent[y]:
+    if rank[x] > rank[y]:
         parent[y] = x
 
     else:
@@ -52,3 +52,5 @@ def kruskal():
     for edge in s_e:
         print(edge)
     print(mst_weight)
+
+kruskal()
