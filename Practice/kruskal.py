@@ -48,7 +48,7 @@ def kruskal():
             mst_weight += w
             union_set(parent_u, parent_v)
 
-    print(" selected edges ")
+    print("Selected edges: ")
     for edge in s_e:
         print(edge)
     print(mst_weight)
