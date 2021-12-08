@@ -29,5 +29,10 @@ for element in nodes:
 for i in range(e):
     u, v = input("Edge %d: " % (i + 1)).split()
     adj[u].append(v)
-    # if graph is directed then we must eliminate the following line
-    adj[v].append(u)
+    # if graph is directed then you must eliminate the following line
+    # adj[v].append(u)
+
+
+for name in nodes:
+    if color[name] == 'white':
+        dfs(name)
