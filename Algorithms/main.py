@@ -1,64 +1,37 @@
-# Python3 program to print DFS traversal
-# from a given given graph
-from collections import defaultdict
+def dfs(u):
+    color[u] = 'gray'
 
-# This class represents a directed graph using
-# adjacency list representation
+    for element in adj[u]:
+        if color[element] == 'white':
+            dfs(element)
 
-
-class Graph:
-
-	# Constructor
-	def __init__(self):
-
-		# default dictionary to store graph
-		self.graph = defaultdict(list)
-
-	# function to add an edge to graph
-	def addEdge(self, u, v):
-		self.graph[u].append(v)
-
-	# A function used by DFS
-	def DFSUtil(self, v, visited):
-
-		# Mark the current node as visited
-		# and print it
-		visited.add(v)
-		print(v, end=' ')
-
-		# Recur for all the vertices
-		# adjacent to this vertex
-		for neighbour in self.graph[v]:
-			if neighbour not in visited:
-				self.DFSUtil(neighbour, visited)
-
-	# The function to do DFS traversal. It uses
-	# recursive DFSUtil()
-	def DFS(self, v):
-
-		# Create a set to store visited vertices
-		visited = set()
-
-		# Call the recursive helper function
-		# to print DFS traversal
-		self.DFSUtil(v, visited)
-
-# Driver code
+    color[u] = 'black'
+    print(u, end=' ')
 
 
-# Create a graph given
-# in the above diagram
-g = Graph()
-g.addEdge(u, v)
-g.addEdge(u, x)
-g.addEdge(v, y)
-g.addEdge(x, v)
-g.addEdge(w, y)
-g.addEdge(w, z)
-g.addEdge(y, x)
-g.addEdge(z, z)
+# as we want to allow any vertex name not only 0 to n-1
+# we need have complete list of all vertices name
+nodes = input("Enter nodes' name: ").split()
+e = int(input("Number of edges: "))
 
-print("Following is DFS from (starting from vertex 2)")
-g.DFS(u)
+# creating dictionary to store adjacency list of each vertex
+adj = {}
+# creating a dictionary to store color's value of each vertex
+color = {}
+# adding all vertex name as key and an empty list as corresponding value
+# adding white color to each vertex
+for element in nodes:
+    adj[element] = []
+    color[element] = 'white'
 
-# This code is contributed by Neelam Yadav
+# creating adjacency list
+for i in range(e):
+    u, v = input("Edge %d: " % (i + 1)).split()
+    adj[u].append(v)
+    # if graph is directed then you must eliminate the following line
+    # adj[v].append(u)
+
+
+for name in nodes:
+    if color[name] == 'white':
+        dfs(name)
