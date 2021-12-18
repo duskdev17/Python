@@ -56,3 +56,23 @@ for i in range(e):
 kruskal()
 print(parent)
 print(rank)
+
+"""
+Enter nodes' name: 9
+How many edges: 14
+Enter edges' information (u v w)
+Edge 1: a b 4
+Edge 2: a h 8
+Edge 3: b h 11
+Edge 4: b c 8
+Edge 5: h i 7
+Edge 6: c i 2
+Edge 7: i g 6
+Edge 8: c d 7
+Edge 9: c f 4
+Edge 10: h g 1
+Edge 11: d e 9
+Edge 12: d f 14
+Edge 13: e f 10
+Edge 14: g f 2
+"""

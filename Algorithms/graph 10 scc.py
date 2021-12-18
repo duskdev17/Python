@@ -1,6 +1,5 @@
 import queue
 
-
 def dfs(current_node):
     if current_node not in visited:
         visited.add(current_node)
