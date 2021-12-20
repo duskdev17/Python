@@ -51,5 +51,5 @@ Enter edges in separate lines.
 4 1
 2 3
 3 1
-DFS: 5 4 2 3 1 0
+Topological order: 5 4 2 3 1 0
 """

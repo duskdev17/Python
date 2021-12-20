@@ -22,4 +22,5 @@ for element in sorted_item:
         profit += total_weight * 1.0 / element[1] * element[0]
         break
 
+print("Maximum possible value = ")
 print(format(profit, '.3f'))
