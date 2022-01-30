@@ -1,4 +1,2 @@
-print("Happy New Year")
-
-for i in range(2022):
-    print("Welcome 2022")
+for i in range(10):
+    print("Happy New Year!")
